@@ -1,0 +1,37 @@
+<div class="seccionesContainer row">
+  <div class="secciones col-md-6">
+    <!-- *ngFor="let seccion of listaSeccionesCurso" -->
+    <div *ngIf="listaSeccionesCurso.length > 0">
+      <div class="listaSecciones" *ngFor="let seccion of listaSeccionesCurso" (click)="direccionarTema(seccion)">
+        <div *ngIf="seccion.fase <= faseSeccion; else elseBlock" class="badgeIcon" style="background-color: #1f366c; color: white;"><mat-icon>lock_open</mat-icon></div>
+        <ng-template #elseBlock><div class="badgeIcon" style="background-color: rgb(187 2 2);; color: white;"><mat-icon>lock</mat-icon></div></ng-template>
+        <div class="badge" ></div>
+        <h2>{{seccion.descripcion | uppercase}}</h2>
+        <img src="assets/iconos/colaboracion.png" class="imagenIcono">
+        <div class="triangulo"></div>
+      </div>
+    </div>
+  </div>
+  <div class="circulo col-md-6">
+    <div class="circuloarchivos col-md-6">
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" *ngIf="listaContenidoCurso.length > 0">
+              <img src="assets/contenido-curso/{{listaContenidoCurso[0].descripcionArchivo}}" class="d-block w-100 imagenContenido" alt="..." >
+            </div>
+            <div *ngIf="listaContenidoCurso.length > 0">
+              <div class="carousel-item" *ngFor="let element of listaContenidoDosCurso">
+                <img class="imagenContenido" src="assets/contenido-curso/{{element.descripcionArchivo}}" alt="...">
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="titulo col-md-6">
+      <h2><strong>{{listaCursoIde.titulo}}</strong></h2>
+    </div>
+    <div class="col-md-6 datosCurso">
+      <p class="text-white">{{listaCursoIde.descripcion}}</p>
+    </div>
+  </div>
+</div>

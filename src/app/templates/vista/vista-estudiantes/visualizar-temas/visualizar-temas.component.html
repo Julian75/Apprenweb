@@ -1,0 +1,52 @@
+<div class="contenedor row">
+    <div class="col-md-12">
+        <div class="carousel row">
+            <mat-card *ngFor="let item of listaTemas" id="card{{item.tema.id}}" (click)="seleccionarTema(item.tema)">
+                <div *ngIf="item.evaluacionResuelta == true; else elseBlock" class="badgeIcon" style="background-color: #1f366c; color: white;"><mat-icon>lock_open</mat-icon></div>
+                <ng-template #elseBlock><div class="badgeIcon" style="background-color: rgb(187 2 2); color: white;"><mat-icon>lock</mat-icon></div></ng-template>
+                <mat-card-content>
+                    <h2 style="margin: 0;">{{item.tema.descripcion}}</h2>
+                    <img width="25%" src="assets/iconos/libroicono.png" alt="">
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="contenido" *ngIf="listaContenido.length > 0">
+            <div class="video">
+                <h2>VIDEOS DEL CONTENIDO</h2>
+                <div *ngIf="listaVideos.length == 0">
+                    <h2>No se tienen videos subidos</h2>
+                </div>
+                <div *ngIf="listaVideos.length > 0">
+                    <embed type="video/webm"
+                    [src]="video"
+                    width="550"
+                    height="350">
+                </div>
+                <div class="controles" *ngIf="listaVideos.length > 1">
+                    <mat-icon (click)="previo()">keyboard_double_arrow_left</mat-icon>
+                    <img src="assets/iconos/flechascubo.png" style="width: 8%">
+                    <mat-icon (click)="siguiente()">keyboard_double_arrow_right</mat-icon>
+                </div>
+            </div>
+            <div class="archivos">
+                <h2>ARCHIVOS CONTENIDO</h2>
+                <div *ngIf="listaArchivos.length == 0">
+                    <h2>No se tienen archivos subidos</h2>
+                </div>
+                <div class="contArchivos" >
+                    <ul>
+                        <li *ngFor="let element of listaArchivos" style="color: white;" (click)="descargarArchivo(element)"><mat-icon class="iconoLista">chevron_right</mat-icon> {{element.descripcionArchivo}}</li>
+                    </ul>
+                    <!-- <div *ngIf="listaImagenes.length > 0" class="image-viewer-container" [class.fullscreen]="fullscreen">
+                        <div class="image-viewer">
+                            <ngx-image-viewer #imageViewer1 [src]="listaFotosCurso" [(index)]="imageIndex1"></ngx-image-viewer>
+                        </div>
+                    </div> -->
+                </div>
+                <button mat-button class="boton_formulario" (click)="formularioEvaluacion()" id="bottonEvaluacion" style="display: none;">
+                  <mat-icon>quiz</mat-icon>
+                </button>
+            </div>
+          </div>
+    </div>
+</div>

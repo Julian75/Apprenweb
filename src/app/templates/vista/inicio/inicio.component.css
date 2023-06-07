@@ -1,0 +1,80 @@
+.example {
+    height: 100%;
+  }
+  mat-drawer{
+    background-color: #252359;
+    width: 15%;
+  }
+  .logo{
+    width: 95%;
+    position: relative;
+    top: 20px;
+      }
+  .boton{
+    width: 100%;
+    background: #5A618C ! important;
+    color: white;
+    text-align: left;
+    font-size: 15px;
+  }
+  div.dataTables_wrapper{ margin-top: 5%;}
+  mat-icon{ margin-left: 5%; font-size: 35px; margin-top: -8%;}
+  mat-expansion-panel{ border-radius: 0%; }
+  mat-expansion-panel-header:hover{ background: #5A618C !important; margin:0%}
+  mat-expansion-panel{
+    position: relative;
+    top: 5%;
+  }
+  mat-panel-title{ color: white; font-weight: 300; }
+  button{ width: 135%; margin-left: -12%; border-radius: 0%; text-align: left; font-weight: 50;}
+  
+  .mat-expansion-panel{
+    background: #5A618C;
+  }
+  .mat-icon{
+    padding-top: 10px;
+    width: 40px;
+    height: 50px;
+  }
+  .mdc-button {
+    justify-content: left;
+    font-size: none;
+  }
+
+  .mat-mdc-table tbody, .mat-mdc-table tfoot, .mat-mdc-table thead, .mat-mdc-cell, .mat-mdc-footer-cell, .mat-mdc-header-row, .mat-mdc-row, .mat-mdc-footer-row, .mat-mdc-table .mat-mdc-header-cell {
+    font-size: 16px;
+  }
+
+  section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+  
+  .example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+  
+

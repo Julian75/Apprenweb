@@ -1,0 +1,18 @@
+<form [formGroup] = "formModulo">
+  <div class="row">
+    <h2 class="titulo_formulario col-md-12">Modificar Modulo</h2>
+    <div class="col-md-12">
+      <h2>Descripción</h2>
+      <mat-form-field class="formularios_campo" appearance="fill">
+      <mat-label>Modifique descripción del modulo</mat-label>
+      <input id="descripcion" formControlName="descripcion" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12">
+      <button mat-raised-button class="boton_formulario" (click)="guardar()"><mat-icon>edit_square</mat-icon></button>
+    </div>
+  </div>
+</form>
+<div class="solpiner" id="snipperModificarModulo" style="text-align: center; display: none;">
+  <div class="loader"></div>
+</div>

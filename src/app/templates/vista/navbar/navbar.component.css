@@ -1,0 +1,108 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar{
+  background-color: #f1f1f1;
+  height: 98px;
+
+}
+
+.shadow{
+  box-shadow: #8691A6 3px 0px 6px 0px !important;
+}
+.opciones{
+  width: 500px;
+}
+mat-icon, .nombre, .rol, .person{ color: white; position: relative;}
+.nombre{ margin-left: 30%; }
+
+.rol:hover{ color: #00235C;   }
+mat-icon{
+  font-size: 40px;
+  width: 5%;
+  height: 70%;
+  left: 76%;
+  top: 10%;
+}
+.person{
+  width: 3%;
+  height: 40%;
+  margin-left: 0.7%;
+}
+
+ul, ol {
+  list-style:none;
+}
+li { float:unset; }
+
+li a {
+  color:#fff;
+  text-decoration:none;
+  padding:10px 12px;
+  display:block;
+}
+
+li ul {
+  display:none;
+  position:absolute;
+  min-width:50px;
+  background-color: #97B4E2;
+}
+
+li:hover > ul {
+  display:block;
+}
+
+li ul li {
+  position:relative;
+}
+
+.flecha{
+  color: white;
+  width: 100px;
+}
+
+button{
+  border: none;
+  background-color: transparent;
+}
+
+.iconMenu{
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.nav2{
+  /* background: linear-gradient(to right, #171E30, #010103, #131B2A); */
+  height: 98px;
+  padding: 1%;
+  background-size: cover;
+  background-position-y: -182px;
+}
+
+.logo{
+  width: 150px;
+  height: 45px;
+}
+
+.iconMenu{
+  font-size: 22px;
+  width: 24%;
+  height: 70%;
+  color: white;
+  left: -2%;
+  top: 15%;
+}
+
+.textoHeader{
+  font-size: 14px;
+}
+
+.encabezados{
+  width: 55%;
+  display: flex;
+  margin-top: 1%;
+  flex-direction: row;
+  justify-content: space-around;
+}

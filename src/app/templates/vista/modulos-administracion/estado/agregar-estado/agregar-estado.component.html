@@ -1,0 +1,33 @@
+<form [formGroup] = "formEstado">
+  <div class="row">
+    <h2 class="titulo_formulario col-md-12">Ingresar Nuevo Estado</h2>
+    <!-- Ingresar Nombre -->
+    <div class="col-md-6">
+      <mat-form-field class="formularios_campo" appearance="fill">
+        <mat-label>Descripcion</mat-label>
+      <input id="descripcion" formControlName="descripcion" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="formularios_campo" appearance="fill">
+        <mat-label>Modulo</mat-label>
+        <mat-select matNativeControl id="modulo" name="modulo" formControlName="modulo">
+          <mat-option *ngFor="let item of listaModulos" [value]="item">{{item.descripcion}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="formularios_campo" appearance="fill">
+        <mat-label>Observacion</mat-label>
+        <textarea id="observacion" formControlName="observacion" matInput></textarea>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+    <!-- Boton de guardar datos -->
+      <button mat-raised-button class="boton_formulario" (click)="guardar()"><mat-icon>add</mat-icon></button>
+    </div>
+  </div>
+</form>
+<div class="solpiner" id="snipperAgregarEstado" style="text-align: center; display: none;">
+  <div class="loader"></div>
+</div>

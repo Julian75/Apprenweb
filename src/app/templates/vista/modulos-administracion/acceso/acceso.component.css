@@ -1,0 +1,15 @@
+.contenedor{
+  width: 90% !important; margin-left: 5%; margin-top: 2%;
+}
+.mat-h1, .mat-headline-5, .mat-typography .mat-h1, .mat-typography .mat-headline-5, .mat-typography h1 {
+  font-size: 16px;
+}
+
+.btnedit{ background-color: #97B4E2; color: white; }
+.btnremove{ background-color: #DA161A; color: white; }
+.btnver{ background-color: #959595; color: white; }
+.boton:hover{
+  background-color: #3a6cda;
+  box-shadow: 0 0 10px #3a6cda, 0 0 40px #3a6cda, 0 0 80px #3a6cda;
+  transition: 1s;
+}

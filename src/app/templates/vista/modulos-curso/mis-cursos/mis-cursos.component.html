@@ -1,0 +1,77 @@
+<div class="contenedor">
+  <button mat-button class="btn text-white my-2" id="botonAdd" *ngIf="accesoRegistro == true" (click)="registrarCurso()">
+    <mat-icon>add_circle</mat-icon>
+  </button>
+  <section class="example-container mat-elevation-z8" tabindex="0">
+    <table datatable mat-table class="mat-elevation-z8 demo-table" [dataSource]="dataSource">
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef >Id</th>
+        <td mat-cell *matCellDef="let element">{{element.idCurso}}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="categoria">
+        <th mat-header-cell *matHeaderCellDef>Asignacion</th>
+        <td mat-cell *matCellDef="let element">{{element.categoria}}</td>
+      </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="titulo">
+          <th mat-header-cell *matHeaderCellDef>Titulo</th>
+          <td mat-cell *matCellDef="let element">{{element.titulo}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="descripcion">
+          <th mat-header-cell *matHeaderCellDef>Descripción</th>
+          <td mat-cell *matCellDef="let element">{{element.descripcion}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="usuario">
+          <th mat-header-cell *matHeaderCellDef>Usuario</th>
+          <td mat-cell *matCellDef="let element">{{element.usuario}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="estado">
+          <th mat-header-cell *matHeaderCellDef>Profesor</th>
+          <td mat-cell *matCellDef="let element">{{element.estado}}</td>
+        </ng-container>
+
+        <!--Opciones-->
+        <ng-container matColumnDef="opciones">
+            <th mat-header-cell *matHeaderCellDef >Opciones</th>
+            <td mat-cell *matCellDef="let item">
+              <button mat-button class="btn btnSecciones text-white mx-2 my-1" [routerLink]="['/vista/seccionesCurso', item.idCurso]" data-bs-toggle="tooltip" data-bs-placement="top" title="Secciones del Curso">
+                <mat-icon>scatter_plot</mat-icon>
+              </button>
+              <button mat-button class="btn btnestudiantes text-white me-2" [routerLink]="['/vista/cursoEstidiantes', item.idCurso]" data-bs-toggle="tooltip" data-bs-placement="top" title="Estudiantes del Curso">
+                <mat-icon>groups</mat-icon>
+              </button>
+              <button mat-button class="btn btnpreguntas text-white me-2 my-1" [routerLink]="['/vista/preguntasEvaluacion', item.idCurso]" data-bs-toggle="tooltip" data-bs-placement="top" title="Preguntas de Evaluacion">
+                <mat-icon>quiz</mat-icon>
+              </button>
+              <button mat-button class="btn btnedit text-white me-2" (click)="modificarCurso(item)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-button class="btn btnremove text-white me-2" (click)="eliminarCurso(item)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>
+  <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[2, 5, 10, 25, 100]"
+              aria-label="Select page">
+  </mat-paginator>
+</div>
+<div class="solpiner" id="snipperListaUsuario" style="text-align: center; display: none;">
+  <div class="loader"></div>
+</div>

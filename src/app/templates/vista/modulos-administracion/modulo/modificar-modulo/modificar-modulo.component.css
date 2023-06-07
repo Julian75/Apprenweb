@@ -1,0 +1,32 @@
+h2{
+  margin: 5px;
+  padding: 5px;
+}
+.container{
+    content: "";
+    position: absolute;
+    border: 0 solid transparent;
+    border-left: 24px solid white;
+    border-radius: 33px 0;
+    top: -18px;
+    left: 20px;
+    width: 30px;
+    height: 34px;
+}
+.formulario_campos{
+  width: 250px;
+}
+.boton_formulario{
+  background-color: #00235C;
+  color: white;
+}
+.formulario, .estado2{ margin-left: 5%; margin-top: 5%; }
+.estado2{ width: 300px; }
+.titulo_formulario{
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+form{
+  width: 90%;
+  margin-left: 4%;
+}

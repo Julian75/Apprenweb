@@ -1,0 +1,95 @@
+<mat-toolbar class="shadow" *ngIf="idRolUsuario != 2">
+    <h2 class="nombre"></h2>
+    <!-- icono y nombre del Usuario -->
+  <mat-toolbar>
+    <div class="container">
+      <div class="d-flex justify-content-between">
+        <div class="d-flex align-items-center">
+          <button id="iconMenu" class="iconMenu d-md-none" routerLink="/sidebarMovil"><i class="fa-solid fa-bars"></i></button>
+          <p class="text-white d-none d-md-block" style="font-size: 25px; font-weight: bold; font-family: 'Roboto', sans-serif;"></p>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+              <div class="d-flex justify-content-center align-items-center">
+                <img src="assets/iconos/Icono Usuario.png" alt="usuario" style="width: 36px; height: 33px;">
+              </div>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+              <!-- <p class="text-white mt-2 ps-2" style="font-size: 18px; font-weight: bold; font-family: 'Roboto', sans-serif;">{{nombre}}</p> -->
+              <mat-select class="flecha">
+                <mat-option >
+                  Modificar Perfil
+                </mat-option>
+                <mat-option >
+                  <button (click)="salir()">Cerrar Sesion</button>
+                </mat-option>
+              </mat-select>
+            </div>
+            <!-- <div class="text-white position-absolute mt-5 ms-5 translate-middle-y" style="width: 100%; font-size: 14px; font-weight: bold; font-family: 'Roboto', sans-serif;">
+              {{usuario}}
+            </div> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </mat-toolbar>
+
+    <!--<mat-icon class="person">person</mat-icon>
+    <mat-label class=""><mat-icon>arrow_drop_down</mat-icon></mat-label>
+    <mat-select class="flecha">
+      <mat-option routerLink="/modificarDatos">
+        Modificar Perfil
+      </mat-option>
+      <mat-option >
+        <button (click)="salir()">Cerrar Sesion</button>
+      </mat-option>
+    </mat-select>-->
+</mat-toolbar>
+
+<mat-toolbar class="shadow nav2" *ngIf="idRolUsuario == 2" style="background-image: url('assets/inicio/imagen-inicio-aprendiz.jpg');">
+  <div class="container">
+    <div class="d-flex justify-content-between">
+      <img src="assets/image/Logo.png" alt="" class="logo" (click)="abrirVista()">
+      <mat-select class="flecha d-md-none" style="width: 250px;">
+        <mat-option >
+          <mat-icon class="iconMenu" style="color: black;">dynamic_feed</mat-icon>Asignatura
+        </mat-option>
+        <mat-option >
+          <mat-icon class="iconMenu" style="color: black;">school</mat-icon>Mis Cursos
+        </mat-option>
+        <mat-option >
+          <mat-icon class="iconMenu" style="color: black;">article</mat-icon>Evaluaciones
+        </mat-option>
+      </mat-select>
+      <div class="encabezados">
+        <a class="d-none d-md-block" style="text-decoration: none;" (click)="abrirAsignaturas()"><h2 class="textoHeader" style="color: white;">Asignatura</h2></a>
+        <h2 routerLink="/vista/misCursosEstudianteV" class="d-none d-md-block textoHeader" style="color: white;">Mis Cursos</h2>
+        <h2 routerLink="/vista/evaluacionesResueltas" class="d-none d-md-block textoHeader" style="color: white;">Evaluaciones</h2>
+      </div>
+      <div class="d-flex align-items-center">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex align-items-center">
+            <div class="d-flex justify-content-center align-items-center">
+              <img src="assets/iconos/Icono Usuario.png" alt="usuario" style="width: 36px; height: 33px;">
+            </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+            <mat-select class="flecha">
+              <mat-option >
+                Modificar Perfil
+              </mat-option>
+              <mat-option >
+                <button (click)="salir()">Cerrar Sesion</button>
+              </mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+<router-outlet>
+  <app-inicio-general *ngIf="idRolUsuario == 2 && diferente == false"></app-inicio-general>
+</router-outlet>

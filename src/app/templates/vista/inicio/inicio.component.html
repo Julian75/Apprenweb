@@ -1,0 +1,65 @@
+<mat-drawer-container class="example" *ngIf="idRolUsuario != 2">
+    <mat-drawer mode="side" opened>
+      <img src="assets/image/Logo.png" alt="" class="logo">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header class="boton">
+        <mat-panel-title >
+            <mat-icon>settings</mat-icon>
+            Configuracion
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="opciones">
+        <button mat-raised-button id="Modulo" routerLink="modulo">Modulo</button>
+        <button mat-raised-button id="Estado" routerLink="estado">Estado</button>
+        <button mat-raised-button id="Roles" routerLink="rol">Roles</button>
+        <button mat-raised-button id="Acceso" routerLink="acceso">Acceso</button>
+        <button mat-raised-button id="Estado" routerLink="tipoDocumento">Tipo Documento</button>
+        <button mat-raised-button id="Usuario" routerLink="usuario">Usuario</button>
+        <button mat-raised-button id="Categoria" routerLink="categoria">Asignatura</button>
+      </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+    <mat-expansion-panel-header class="boton">
+      <mat-panel-title >
+        <mat-icon>business</mat-icon>
+        Cursos
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="opciones">
+      <button mat-raised-button id="Curso" routerLink="curso">Curso</button>
+      <button mat-raised-button id="MisCursos" routerLink="misCursos">Mis Cursos</button>
+      <button mat-raised-button id="TemasCursos" routerLink="temasCursos">Temas Curso</button>
+      <button mat-raised-button id="ContenidoCurso" routerLink="contenidoCurso">Contenido Curso</button>
+    </div>
+  </mat-expansion-panel>
+
+
+  <mat-expansion-panel (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+    <mat-expansion-panel-header class="boton">
+      <mat-panel-title >
+        <mat-icon>airplay</mat-icon>
+        Evaluaciones
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="opciones">
+      <button mat-raised-button id="Modulo" routerLink="evaluacionesAdministracion">Evaluacion</button>
+    </div>
+  </mat-expansion-panel>
+
+
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-navbar></app-navbar>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<mat-drawer-container class="example" *ngIf="idRolUsuario == 2">
+  <mat-drawer-content>
+      <app-navbar></app-navbar>
+  </mat-drawer-content>
+</mat-drawer-container>
+  <!-- Cierre de contenido del proyecto -->

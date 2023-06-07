@@ -1,0 +1,77 @@
+<div class="contenedor">
+  <button mat-button class="btn text-white my-2" (click)="abrirModal()" id="botonAdd">
+    <mat-icon>add_circle</mat-icon>
+  </button>
+  <section class="example-container mat-elevation-z8" tabindex="0">
+    <table datatable mat-table class="mat-elevation-z8 demo-table" [dataSource]="dataSource">
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef >Id</th>
+          <td mat-cell *matCellDef="let element">{{element.idTemaCurso}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="categoria">
+          <th mat-header-cell *matHeaderCellDef>Asignatura</th>
+          <td mat-cell *matCellDef="let element">{{element.categoria}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="titulo">
+          <th mat-header-cell *matHeaderCellDef>Curso</th>
+          <td mat-cell *matCellDef="let element">{{element.titulo}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="descripcion">
+          <th mat-header-cell *matHeaderCellDef>Descripción Curso</th>
+          <td mat-cell *matCellDef="let element">{{element.descripcion}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+          <ng-container matColumnDef="seccionCurso">
+              <th mat-header-cell *matHeaderCellDef>Unidad Curso</th>
+              <td mat-cell *matCellDef="let element">{{element.seccionCurso}}</td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="temaCurso">
+              <th mat-header-cell *matHeaderCellDef>Tema Curso</th>
+              <td mat-cell *matCellDef="let element">{{element.temaCurso}}</td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="usuario">
+              <th mat-header-cell *matHeaderCellDef>Profesor</th>
+              <td mat-cell *matCellDef="let element">{{element.profesor}}</td>
+          </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">TEMA DEL CURSO {{element.estado}}</td>
+          </ng-container>
+
+        <!--Opciones-->
+        <ng-container matColumnDef="opciones">
+            <th mat-header-cell *matHeaderCellDef >Opciones</th>
+            <td mat-cell *matCellDef="let item">
+              <button *ngIf="item.existeContenido == 'TRUE'" mat-button class="btn btnver text-white mx-2 my-1" (click)="visualizarContenidosCurso(item)">
+                <mat-icon>art_track</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>
+  <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[2, 5, 10, 25, 100]"
+              aria-label="Select page">
+  </mat-paginator>
+</div>
+<div class="solpiner" id="snipperListaTemaCurso" style="text-align: center; display: none;">
+  <div class="loader"></div>
+</div>

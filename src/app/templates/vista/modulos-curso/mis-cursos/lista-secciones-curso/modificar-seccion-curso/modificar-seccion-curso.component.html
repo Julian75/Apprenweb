@@ -1,0 +1,34 @@
+<form [formGroup] = "formSeccionCurso">
+  <div class="row">
+    <h2 class="titulo_formulario col-md-12">Modificar Unidad del Curso</h2>
+    <div class="col-md-6">
+      <h2>Fase {{idFase}}</h2>
+      <mat-form-field class="formularios_campo" appearance="fill">
+        <mat-label>Modificar fase</mat-label>
+        <input type="number" id="fase" name="fase" formControlName="fase" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <h2>Descripción Fase {{idFase}}</h2>
+      <mat-form-field class="formularios_campo" appearance="fill">
+        <mat-label>Modificar descripcion</mat-label>
+        <input matInput id="descripcion" name="descripcion" formControlName="descripcion" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <h2>Estado</h2>
+      <mat-form-field class="formularios_campo"  appearance="fill">
+      <mat-label>Modificar Estado</mat-label>
+      <mat-select matNativeControl id="estado" name="estado" formControlName="estado">
+        <mat-option *ngFor="let item of listaEstados"  [value]="item.id">{{item.descripcion}}</mat-option>
+      </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <button mat-raised-button class="boton_formulario" (click)="modificar()"><mat-icon>edit_square</mat-icon></button>
+    </div>
+  </div>
+</form>
+<div class="solpiner" id="snipperModificarSeccionCurso" style="text-align: center; display: none;">
+  <div class="loader"></div>
+</div>

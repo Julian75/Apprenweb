@@ -1,0 +1,7 @@
+.contenedor{
+  width: 90% !important; margin-left: 5%; margin-top: 2%;
+}
+.mat-h1, .mat-headline-5, .mat-typography .mat-h1, .mat-typography .mat-headline-5, .mat-typography h1 {
+  font-size: 16px;
+}
+.btnver{ background-color: #959595; color: white; }

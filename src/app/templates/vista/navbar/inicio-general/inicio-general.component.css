@@ -1,0 +1,45 @@
+.fondo{
+    /* background: radial-gradient(#35adf1, #302c8f); */
+    width: 40%;
+    height: 350px;
+    border-radius: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor{
+    min-height: 85.1vh;
+    background-color: gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imagenFondo{
+    min-height: 85.1vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: bottom;
+}
+
+.textos{
+    width: 39%;
+    padding-left: 2%;
+}
+
+.frase, .titulo{
+    color: #82868d;
+    line-height: 1.3;
+    font-size: 22px;
+    text-align: left;
+}
+
+.titulo{
+    font-size: 45px;
+    color: #7488b3;
+}

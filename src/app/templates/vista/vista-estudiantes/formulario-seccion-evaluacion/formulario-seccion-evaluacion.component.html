@@ -1,0 +1,23 @@
+<div class="contenedorPrincipal">
+  <div class="formulario">
+    <button mat-raised-button class="boton_formulario1" (click)="devolver()"><mat-icon>arrow_back</mat-icon></button>
+    <h1><strong>EVALUACION UNIDAD {{temaIde.descripcion}}</strong></h1>
+    <div class="row">
+      <h2 class="titulo_formulario col-md-12" ></h2>
+      <!-- Ingresar Nombre -->
+      <div class="col-md-6" *ngFor="let pregunt of listaPreguntaRespuesta">
+        <h2>{{pregunt.pregunta.descripcion | uppercase}}</h2>
+        <mat-radio-group aria-label="Select an option" id="opcion{{pregunt.pregunta.id}}" name="opcion{{pregunt.pregunta.id}}">
+          <mat-radio-button *ngFor="let respuesta of pregunt.respuestas" [value]="respuesta" (click)="almacenarEvaluacion(respuesta, pregunt)">{{respuesta.descripcion | uppercase}}</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="col-md-6">
+        <!-- Boton de guardar datos -->
+        <button mat-raised-button class="boton_formulario" (click)="guardar()"><mat-icon>add</mat-icon></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="solpiner" id="snipperAgregarTemaCursoEvaluacion" style="text-align: center; display: none;">
+  <div class="loader"></div>
+</div>

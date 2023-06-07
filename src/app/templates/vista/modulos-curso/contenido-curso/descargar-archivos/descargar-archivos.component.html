@@ -1,0 +1,29 @@
+<div class="contenedor">
+  <section class="example-container mat-elevation-z8" tabindex="0">
+    <table id="asignarTurnoVendedor" mat-table class="mat-elevation-z8 demo-table" [dataSource]="dataSource" matSort>
+        <!-- Position Column -->
+        <ng-container matColumnDef="nombreArchivo" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header id="idSp2"><h3 id="idSpa">Nombre del Archivo</h3></th>
+          <td mat-cell *matCellDef="let element" id="idSp2">{{element.name}}</td>
+        </ng-container>
+
+        <!--Opciones-->
+       <ng-container matColumnDef="opciones">
+        <th mat-header-cell *matHeaderCellDef id="opcSp2"><h3 id="opcSp">Opciones</h3></th>
+        <td mat-cell *matCellDef="let item" id="opcSp2">
+          <button class="btn btnedit me-2 edi" (click)="descargarPdf(item.url)" data-bs-toggle="tooltip" data-bs-placement="top" title="Descargar archivo de la solicitud de pqrsd">
+            <mat-icon>file_download</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>
+  <mat-paginator [length]="100"
+            [pageSize]="5"
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            aria-label="Select page">
+</mat-paginator>
+</div>

@@ -1,0 +1,118 @@
+/* Prime-NG */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+html{
+  position: relative;
+  min-height: 100%;
+}
+.example-container {
+  max-width: 100%;
+  overflow: auto;
+  margin-top: 3%;
+  border-bottom: 20%;
+  box-shadow: 1px none #000;
+  margin-bottom: 3%;
+}
+table{
+  width: 100%;
+  height: 100%;
+}
+.formulario_campos{
+  width: 80%;
+}
+/* .boton_formulario{
+  margin-left: 5%;
+  background-color: #5A618C;
+} */
+.boton_formulario{ background-color: #00235C; color: white;}
+#botonAdd{ background-color: #00235C; }
+.mdc-button {
+    background: #00235C;
+  }
+.titulo_formulario{ border-bottom: 3px solid #00235C; }
+
+body{
+    margin-bottom: 10px;
+    }
+
+.wrap{
+    padding-bottom: 10px;
+
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+#p.container {
+    background-image: #dadada  repeat center center;
+  }
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Spineer */
+.solpiner{
+  background-color: rgba(90, 90, 90, 0.247);
+  width: 100%;
+  height: 100%;
+  z-index: 500px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.loader {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: #FFF #FFF transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin-top: 20%;
+  margin-left: 45%;
+}
+.loader::after,
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent transparent #00235C #00235C;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+.loader::before {
+  width: 92px;
+  height: 92px;
+  border-color: #FFF #FFF transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}

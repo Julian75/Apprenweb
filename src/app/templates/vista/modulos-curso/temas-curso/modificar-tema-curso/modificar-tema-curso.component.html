@@ -1,0 +1,63 @@
+<form [formGroup]="formTemaCurso">
+  <div class="row">
+    <h2 class="titulo_formulario col-md-12">Modificar el Tema del Curso</h2>
+    <!-- Ingresar Nombre -->
+    <div class="col-md-6">
+      <h2>Descripción</h2>
+      <mat-form-field class="formularios_campo" appearance="fill">
+        <mat-label>Modifique la descripción</mat-label>
+        <input id="descripcion" formControlName="descripcion" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <h2>Asignatura</h2>
+      <mat-form-field class="formularios_campo" appearance="fill">
+        <mat-label>Modifique la asignatura de categoria</mat-label>
+        <mat-select matNativeControl id="categoria" name="categoria" formControlName="categoria">
+          <mat-option *ngFor="let item of listaCategorias" [value]="item.id" (click)="listarCursoSecciones(item, 'categoria')">{{item.descripcion}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <h2>Curso</h2>
+      <mat-form-field class="formularios_campo" appearance="fill">
+          <mat-label>Modifique la selección de curso</mat-label>
+          <mat-select matNativeControl id="curso" name="curso" formControlName="curso">
+              <mat-option *ngFor="let item of listaCursos" [value]="item.id" (click)="listarCursoSecciones(item, 'curso')">{{item.titulo}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <h2>Unidad Curso</h2>
+      <mat-form-field class="formularios_campo" appearance="fill">
+          <mat-label>Modifique la unidad de la seccion de curso</mat-label>
+          <mat-select matNativeControl id="seccionCurso" name="seccionCurso" formControlName="seccionCurso">
+              <mat-option *ngFor="let item of listaSeccionCursos" [value]="item.id" >{{item.descripcion}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <h2>Estado</h2>
+      <mat-form-field class="formularios_campo" appearance="fill">
+          <mat-label>Modifique la selección de estado</mat-label>
+          <mat-select matNativeControl id="estado" name="estado" formControlName="estado">
+              <mat-option *ngFor="let item of listaEstados" [value]="item.id" >{{item.descripcion}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 mb-3">
+      <h2>El tema tendra Evaluacion?</h2>
+        <mat-radio-group formControlName="evaluacion">
+          <mat-radio-button value="SI">SI</mat-radio-button>
+          <mat-radio-button value="NO">NO</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="col-md-6">
+        <!-- Boton de guardar datos -->
+        <button mat-raised-button class="boton_formulario" (click)="guardar()"><mat-icon>edit_square</mat-icon></button>
+    </div>
+  </div>
+</form>
+<div class="solpiner" id="snipperModificarTemaCurso" style="text-align: center; display: none;">
+  <div class="loader"></div>
+</div>

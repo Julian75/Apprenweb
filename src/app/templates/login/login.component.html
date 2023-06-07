@@ -1,0 +1,52 @@
+<div class="contenedorLogin">
+
+<div class="moduloiz">
+  <div class="logo">
+    <img src="assets/image/Logo.png" alt="" />
+  </div>
+</div>
+<div class="shadow">
+<div class="modulode">
+  <div class="logintitulo">
+    <h1>¡Hola!</h1>
+  </div>
+  <div class="loginsubtitulo">
+    <h3>Inicia sesión en tu cuenta</h3>
+  </div>
+  <form [formGroup]="formLogin">
+    <div class="formulario">
+      <div class="row">
+        <div class="col-my">
+          <mat-form-field class="formularios_campo" appearance="fill">
+            <mat-label>Usuario</mat-label>
+            <input id="descripcion" formControlName="username" matInput />
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-my">
+          <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="botonLogin">
+    <button mat-raised-button extended (click)="login()">
+      <mat-icon>ingresar</mat-icon>
+      Iniciar sesión
+    </button>
+  </div>
+</div>
+</div>
+</div>

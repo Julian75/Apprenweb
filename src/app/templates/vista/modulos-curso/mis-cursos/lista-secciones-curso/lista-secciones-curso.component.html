@@ -1,0 +1,65 @@
+<div class="contenedor">
+  <button mat-button class="btn btnedit text-white my-2 mx-2" [routerLink]="['/vista/misCursos']" routerLinkActive="router-link-active" data-bs-toggle="tooltip" data-bs-placement="top" title="Devolver">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <button mat-button class="btn text-white my-2 mx-2" id="botonAdd" (click)="registrarSeccionCurso()">
+    <mat-icon>add_circle</mat-icon>
+  </button>
+  <section class="example-container mat-elevation-z8" tabindex="0">
+    <table datatable mat-table class="mat-elevation-z8 demo-table" [dataSource]="dataSource">
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef >Id</th>
+        <td mat-cell *matCellDef="let element">{{element.idSeccionCurso}}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="curso">
+        <th mat-header-cell *matHeaderCellDef>Asignacion</th>
+        <td mat-cell *matCellDef="let element">{{element.categoria}}</td>
+      </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="descripcion">
+          <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+          <td mat-cell *matCellDef="let element">{{element.descripcion}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="fase">
+          <th mat-header-cell *matHeaderCellDef>Fase</th>
+          <td mat-cell *matCellDef="let element">{{element.fase}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="estado">
+          <th mat-header-cell *matHeaderCellDef>Estado</th>
+          <td mat-cell *matCellDef="let element">{{element.estado}}</td>
+        </ng-container>
+
+        <!--Opciones-->
+        <ng-container matColumnDef="opciones">
+            <th mat-header-cell *matHeaderCellDef >Opciones</th>
+            <td mat-cell *matCellDef="let item">
+              <button mat-button class="btn btnedit text-white mx-2 my-1" (click)="modificarSeccion(item)">
+                <mat-icon>edit_square</mat-icon>
+              </button>
+              <button mat-button class="btn btnremove text-white mx-2 my-1" *ngIf="item.idEstado != 13" (click)="inactivarSeccion(item)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>
+  <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[2, 5, 10, 25, 100]"
+              aria-label="Select page">
+  </mat-paginator>
+</div>
+<div class="solpiner" id="snipperListaSeccionCurso" style="text-align: center; display: none;">
+  <div class="loader"></div>
+</div>

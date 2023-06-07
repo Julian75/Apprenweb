@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="cardBox ms-md-3 col-md-4 ms-5 my-4" *ngFor="let item of listaCursos2">
+    <mat-card class="card example-card">
+      <div class="front">
+          <mat-card-header>
+              <mat-card-title>{{item.datos.titulo}}</mat-card-title>
+          </mat-card-header>
+          <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="assets/contenido-curso/{{item.archivoPrincipal}}" class="d-block w-100" alt="...">
+                  </div>
+                  <div *ngIf="item.archivos.length > 0">
+                    <div class="carousel-item" *ngFor="let element of item.archivos">
+                      <img src="assets/contenido-curso/{{element}}" alt="...">
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <mat-card-content>
+              <p>
+              {{item.datos.descripcion}}
+              </p>
+          </mat-card-content>
+      </div>
+      <div class="back">
+          <mat-card-title>Profesor <br> {{item.datos.profesor}}</mat-card-title>
+          <button mat-raised-button style="background: #1e3864; color: white;" (click)="registrarCurso(item.datos)" *ngIf="document != servicioShared.direccionUrl+'vista/misCursosEstudianteV'">Inscribirse</button>
+          <button mat-raised-button style="background: #1e3864; color: white;" [routerLink]="['/vista/seccionCursoEstudiante', item.datos.idCurso]" *ngIf="document == servicioShared.direccionUrl+'vista/misCursosEstudianteV'"><mat-icon>event_seat</mat-icon></button>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<div class="solpiner" id="snipper" style="text-align: center; display: none;">
+<div class="loader"></div>
+</div>

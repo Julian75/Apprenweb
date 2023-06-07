@@ -1,0 +1,14 @@
+mat-card{
+    width: 290px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #1a1436, #121724, #1a1436);
+    color: white;
+    box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 30%);
+}
+h2{
+    text-align: center;
+}

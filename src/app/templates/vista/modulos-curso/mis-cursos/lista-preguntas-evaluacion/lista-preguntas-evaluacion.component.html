@@ -1,0 +1,145 @@
+<div class="contenedor">
+  <button id="devolver" mat-button class="btnedit text-white my-2 me-3" (click)="devolver()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <button mat-button class="btn text-white my-2" (click)="abrirModal()" id="botonAdd">
+    <mat-icon>add_circle</mat-icon>
+  </button>
+  <section id="misCursos" class="example-container mat-elevation-z8" tabindex="0" style="display: none;">
+    <table datatable mat-table class="mat-elevation-z8 demo-table" [dataSource]="dataSource">
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef >Id</th>
+          <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="seccionCurso">
+            <th mat-header-cell *matHeaderCellDef>Unidad del Curso</th>
+            <td mat-cell *matCellDef="let element">{{element.seccionCurso}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="temaCurso">
+          <th mat-header-cell *matHeaderCellDef>Tema del Curso</th>
+          <td mat-cell *matCellDef="let element">{{element.temaCurso}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="pregunta">
+          <th mat-header-cell *matHeaderCellDef>Pregunta</th>
+          <td mat-cell *matCellDef="let element">{{element.descripcion}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="estado">
+          <th mat-header-cell *matHeaderCellDef>Estado</th>
+          <td mat-cell *matCellDef="let element">{{element.estado}}</td>
+        </ng-container>
+
+        <!--Opciones-->
+        <ng-container matColumnDef="opciones">
+          <th mat-header-cell *matHeaderCellDef >Opciones</th>
+          <td mat-cell *matCellDef="let item">
+            <button *ngIf="item.idEstado != 18" mat-button class="btn btnedit text-white me-2" [routerLink]="['/vista/respuestasEvaluacion', item.id]">
+              <mat-icon>task</mat-icon>
+            </button>
+            <button mat-button class="btn btnedit text-white me-2"  (click)="modificarPreguntaEvaluacion(item.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-button class="btn btnremove text-white me-2" (click)="eliminarPreguntaEvaluacion(item)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>
+  <section id="evaluaciones" class="example-container mat-elevation-z8" tabindex="0" style="display: none;">
+    <table datatable mat-table class="mat-elevation-z8 demo-table" [dataSource]="dataSource2">
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef >Id</th>
+          <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="categoria">
+          <th mat-header-cell *matHeaderCellDef>Asignatura</th>
+          <td mat-cell *matCellDef="let element">{{element.idTemaCurso.idSeccionCurso.idCurso.idCategoria.descripcion}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="titulo">
+          <th mat-header-cell *matHeaderCellDef>Curso</th>
+          <td mat-cell *matCellDef="let element">{{element.idTemaCurso.idSeccionCurso.idCurso.titulo}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="descripcion">
+          <th mat-header-cell *matHeaderCellDef>Descripción Curso</th>
+          <td mat-cell *matCellDef="let element">{{element.idTemaCurso.idSeccionCurso.idCurso.descripcion}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="seccionCurso">
+          <th mat-header-cell *matHeaderCellDef>Unidad Curso</th>
+          <td mat-cell *matCellDef="let element">{{element.idTemaCurso.idSeccionCurso.descripcion}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="temaCurso">
+          <th mat-header-cell *matHeaderCellDef>Tema Curso</th>
+          <td mat-cell *matCellDef="let element">{{element.idTemaCurso.descripcion}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="pregunta">
+          <th mat-header-cell *matHeaderCellDef>Pregunta</th>
+          <td mat-cell *matCellDef="let element">{{element.descripcion}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="usuario">
+          <th mat-header-cell *matHeaderCellDef>Profesor</th>
+          <td mat-cell *matCellDef="let element">{{element.idTemaCurso.idSeccionCurso.idCurso.idUsuario.nombre}} {{element.idTemaCurso.idSeccionCurso.idCurso.idUsuario.apellido}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="estado">
+          <th mat-header-cell *matHeaderCellDef>Estado</th>
+          <td mat-cell *matCellDef="let element">{{element.idEstado.descripcion}}</td>
+        </ng-container>
+
+        <!--Opciones-->
+        <ng-container matColumnDef="opciones">
+          <th mat-header-cell *matHeaderCellDef >Opciones</th>
+          <td mat-cell *matCellDef="let item">
+            <button *ngIf="item.idEstado != 18" mat-button class="btn btnedit text-white me-2" [routerLink]="['/vista/respuestasEvaluacion', item.id]">
+              <mat-icon>task</mat-icon>
+            </button>
+            <button mat-button class="btn btnedit text-white me-2"  (click)="modificarPreguntaEvaluacion(item.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-button class="btn btnremove text-white me-2" (click)="eliminarPreguntaEvaluacion(item)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+    </table>
+  </section>
+
+  <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[2, 5, 10, 25, 100]"
+              aria-label="Select page">
+  </mat-paginator>
+</div>
+<div class="solpiner" id="snipperlistaPreguntasEvaluacion" style="text-align: center; display: none;">
+  <div class="loader"></div>
+</div>

@@ -1,0 +1,27 @@
+<form [formGroup] = "formRespuestas">
+  <div class="row">
+    <h2 class="titulo_formulario col-md-12">Ingresar Nueva Respuesta</h2>
+    <!-- Ingresar Nombre -->
+    <div class="col-md-12">
+      <h2>Descripcion</h2>
+      <mat-form-field class="formularios_campo" appearance="fill">
+        <mat-label>Descripcion</mat-label>
+      <input id="descripcion" formControlName="descripcion" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 mb-3">
+      <h2>Tipo Respuesta</h2>
+        <mat-radio-group formControlName="correcta">
+          <mat-radio-button value="correcta">Correcta</mat-radio-button>
+          <mat-radio-button value="incorrecta">Incorrecta</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="col-md-12">
+    <!-- Boton de guardar datos -->
+      <button mat-raised-button class="boton_formulario" (click)="guardar()"><mat-icon>add</mat-icon></button>
+    </div>
+  </div>
+</form>
+<div class="solpiner" id="snipper" style="text-align: center; display: none;">
+  <div class="loader"></div>
+</div>

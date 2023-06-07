@@ -1,0 +1,67 @@
+<form [formGroup] = "formCurso">
+  <div class="row">
+    <h2 class="titulo_formulario col-md-12">Ingresar Nuevo Curso</h2>
+    <!-- Ingresar Nombre -->
+    <div class="col-md-6 mt-3">
+      <mat-form-field class="formularios_campo" appearance="fill">
+        <mat-label>Titulo</mat-label>
+      <input id="titulo" formControlName="titulo" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 mt-3">
+      <mat-form-field class="formularios_campo" appearance="fill">
+        <mat-label>Descripcion</mat-label>
+      <input id="descripcion" formControlName="descripcion" matInput>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <h2>Tipo Curso</h2>
+      <mat-form-field class="formularios_campo"  appearance="fill">
+      <mat-label>Seleccione Tipo Curso</mat-label>
+      <mat-select matNativeControl id="tipoCurso" name="tipoCurso" formControlName="tipoCurso">
+        <mat-option *ngFor="let item of listaTipoCurso" [value]="item">{{item.descripcion}}</mat-option>
+      </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <h2>Usuario</h2>
+      <mat-form-field class="formularios_campo"  appearance="fill">
+      <mat-label>Seleccione Usuario</mat-label>
+      <mat-select matNativeControl id="usuario" name="usuario" formControlName="usuario">
+        <mat-option *ngFor="let item of listaUsuario" [value]="item">{{item.nombre}} {{item.apellido}}</mat-option>
+      </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <h2>Imagenes Principales</h2>
+      <button id="selectButton" mat-raised-button (click)="fileInput1.click()" style="margin-top: 15px;"><mat-icon>add_photo_alternate</mat-icon></button>
+      <input #fileInput1 type="file" hidden multiple (change)="selectFiles($event)" /><br>
+      <div class="archivosCompletos" id="validacionArchivoVis" style="display: none;">
+        <span *ngIf="cantidadArchivos > 0" style="margin-top: 5px;"><strong style="margin-right: 5px;">Cantidad de archivos: </strong>{{cantidadArchivos}}</span><br>
+        <h4 *ngIf="cantidadArchivos > 0" style="margin-top: 5px;"><strong>Nombres de los archivos seleccionados:</strong></h4>
+        <ul style="margin-top: 5px; margin-bottom: 25px;" *ngIf="cantidadArchivos > 0">
+          <li style="margin-top: 5px;" *ngFor="let archivo of listaContenidoCurso[0].archivos">-> {{archivo}}</li>
+        </ul>
+      </div>
+    </div>
+    <!-- <div class="col-md-6">
+      <h2>Imagenes Principales</h2>
+      <button id="selectButton" mat-raised-button (click)="fileInput2.click()" style="margin-top: 15px;"><mat-icon>add_photo_alternate</mat-icon></button>
+      <input #fileInput2 type="file" hidden multiple (change)="selectFiles($event, 'LICENCIA DE TRÁNSITO')" /><br>
+      <div class="col-md-5 imagenes">
+        <div class="image-viewer-container" [class.fullscreen]="fullscreen">
+          <div class="image-viewer">
+            <ngx-image-viewer #imageViewer1 [src]="listaLicenciaTransito" [(index)]="imageIndex1"></ngx-image-viewer>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="col-md-6">
+    <!-- Boton de guardar datos -->
+      <button mat-raised-button class="boton_formulario" (click)="guardar()"><mat-icon>add</mat-icon></button>
+    </div>
+  </div>
+</form>
+<div class="solpiner" id="snipperAgregarCurso" style="text-align: center; display: none;">
+  <div class="loader"></div>
+</div>

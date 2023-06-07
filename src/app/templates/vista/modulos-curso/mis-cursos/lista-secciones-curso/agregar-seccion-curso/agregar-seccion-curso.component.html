@@ -1,0 +1,32 @@
+<form [formGroup] = "formSeccionCurso">
+  <div class="row">
+    <h2 class="titulo_formulario col-md-12">Ingresar Nueva Unidad del Curso</h2>
+    <div class="col-md-3" id="cantidad">
+      <h2>Fases</h2>
+      <mat-form-field class="formularios_campo" appearance="fill">
+        <mat-label>Ingrese cantidad de fases</mat-label>
+        <input type="number" matInput (keyup)="generarFases($event)">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12" id="fasesCantidad" style="display: none;">
+      <div class="row">
+        <div *ngFor="let item of fasesC" class="col-md-4">
+          <h2>Descripción Fase {{item}}</h2>
+          <mat-form-field class="formularios_campo" appearance="fill">
+            <mat-label>Descripcion</mat-label>
+            <input id="descripcion{{item}}" matInput (keyup)="almacenarDatos($event, item)">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+        <!-- Boton de guardar datos -->
+          <button mat-raised-button class="boton_formulario" (click)="guardar()"><mat-icon>add</mat-icon></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="solpiner" id="snipperAgregarSeccionCurso" style="text-align: center; display: none;">
+  <div class="loader"></div>
+</div>
